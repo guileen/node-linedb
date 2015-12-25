@@ -48,15 +48,18 @@ LineDB.prototype.put = function(id, cols) {
     this.stream.write(lineparser.stringify([new Date, '$put', id]) + '\t' + lineparser.stringify(cols) + '\n')
 }
 
-LineDB.prototype.get = function(id) {
+LineDB.prototype.get = function(id, callback) {
     // this.logfile.write(lineparser.stringify([new Date, '$get', id]) + '\t' + lineparser.stringify(cols))
-    return this.cache[id]
+    callback(null, this.cache[id])
 }
 
-LineDB.prototype.del = function(id) {
+LineDB.prototype.del = function(id, callback) {
     this.stream.write(lineparser.stringify([new Date, '$del', id]) + '\n')
     var cols = this.cache[id]
     delete this.cache[id]
+    if(callback) {
+        callback(null, cols)
+    }
 }
 
 LineDB.prototype.close = function() {
