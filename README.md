@@ -25,17 +25,22 @@ var db = linedb(file)
 db.put('user:1000', ['小李', 20, 165])
 ```
 
-### db.get(id)
-returns `cols`
+### db.get(id, callback)
+`callback` function(err, cols)
+
 ```
-var cols = db.get('user:1000')
-console.log(cols)
+db.get('user:1000', function(err, cols) {
+    console.log(cols)
+})
 ```
 
-### db.del(id)
+### db.del(id, callback)
 Delete row.
+`callback` function(err, deletedCols)
 ```
-db.del('user:1000')
+db.del('user:1000', function(err, olduser) {
+    console.log(olduser)
+})
 ```
 
 ### db.close()
