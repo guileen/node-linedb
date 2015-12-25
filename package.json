@@ -1,0 +1,27 @@
+{
+  "name": "linedb",
+  "version": "0.1.0",
+  "description": "Log file as NoSQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "./bin/mocha -R"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guileen/node-linedb.git"
+  },
+  "keywords": [
+    "Log",
+    "NoSQL",
+    "Plain"
+  ],
+  "author": "guileen@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guileen/node-linedb/issues"
+  },
+  "homepage": "https://github.com/guileen/node-linedb#readme",
+  "dependencies": {
+    "chai": "^3.4.1"
+  }
+}
